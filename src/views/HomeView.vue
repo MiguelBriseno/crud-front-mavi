@@ -37,7 +37,6 @@
       </v-col>
     </v-row>
 
-    <!-- Modal para el GIF -->
     <v-dialog
       v-model="showModal"
       max-width="300"
@@ -72,7 +71,6 @@ export default {
         this.showModal = true;
         this.buttonClicked = true;
 
-        // Ocultar el modal después de 2 segundos y recargar la página
         setTimeout(() => {
           this.showModal = false;
         }, 2000);

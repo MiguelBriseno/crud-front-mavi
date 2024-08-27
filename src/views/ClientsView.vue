@@ -44,7 +44,6 @@
       </v-col>
     </v-row>
 
-    <!-- Dialog for creating a new client -->
     <v-dialog v-model="createDialog" max-width="500px">
       <v-card>
         <v-card-title>
@@ -86,7 +85,6 @@
       </v-card>
     </v-dialog>
 
-    <!-- Dialog for updating client -->
     <v-dialog v-model="updateDialog" max-width="500px">
       <v-card>
         <v-card-title>
@@ -213,7 +211,7 @@ export default {
       }
     },
     openCreateDialog() {
-      this.newClient = { name: '', lastname: '', address: '', email: '' }; // Reset form
+      this.newClient = { name: '', lastname: '', address: '', email: '' }; 
       this.createDialog = true;
     },
     createClient() {
@@ -247,7 +245,7 @@ export default {
       }
     },
     updateClient(client) {
-      this.selectedClient = { ...client }; // Clonar el cliente seleccionado
+      this.selectedClient = { ...client }; 
       this.updateDialog = true;
     },
     saveClient() {
@@ -286,5 +284,4 @@ export default {
 </script>
 
 <style scoped>
-/* Agrega tus estilos aquí */
 </style>

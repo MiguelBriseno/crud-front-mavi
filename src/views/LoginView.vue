@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     login() {
-      this.$refs.form.validate(); // Trigger validation
+      this.$refs.form.validate();
       if (this.valid) {
         this.loading = true;
         this.error = '';
@@ -70,8 +70,8 @@ export default {
             const response = JSON.parse(xhr.responseText);
             if (response.message === 'Login exitoso') {
               localStorage.setItem('user', JSON.stringify(response.user));
-              localStorage.setItem('token', response.token); // Almacena el token en localStorage
-              this.$router.push({ name: 'HomePage' }); // Redirige al home
+              localStorage.setItem('token', response.token); 
+              this.$router.push({ name: 'HomePage' }); 
             } else {
               this.error = response.message;
             }

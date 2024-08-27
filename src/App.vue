@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <!-- Barra de navegación solo visible si hay información del usuario en el localStorage -->
     <v-navigation-drawer
       app
       v-if="isAuthenticated"
@@ -31,25 +30,20 @@ export default {
   name: 'App',
   computed: {
     isAuthenticated() {
-      // Verifica si hay información del usuario en el localStorage
       return !!localStorage.getItem('token');
     }
   },
   methods: {
     handleLogout() {
-      // Limpia el localStorage
       localStorage.removeItem('user');
       localStorage.removeItem('token');
 
-      // Actualiza la vista actual para reflejar el cambio
       this.$router.push({ name: 'LoginView' });
-      // Eliminamos la recarga de la ventana
-      window.location.reload(); // No es necesario, la navegación debería ser suficiente
+      window.location.reload(); 
     }
   }
 };
 </script>
 
 <style>
-/* Agrega tus estilos aquí */
 </style>

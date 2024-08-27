@@ -11,7 +11,7 @@ const routes = [
     path: '/',
     name: 'HomePage',
     component: HomePage,
-    meta: { requiresAuth: true } // Requiere autenticación
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
@@ -33,24 +33,18 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem('user'); // Verifica autenticación desde localStorage
+  const isAuthenticated = !!localStorage.getItem('user');
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    // Si se requiere autenticación
     if (!isAuthenticated) {
-      // No está autenticado, redirigir al login
       next({ name: 'Login' });
     } else {
-      // Está autenticado, permitir el acceso
       next();
     }
   } else {
-    // Rutas públicas
     if (to.name === 'Login' && isAuthenticated) {
-      // Si está autenticado y la ruta es el login, redirigir al home
       next({ name: 'HomePage' });
     } else {
-      // Permitir el acceso
       next();
     }
   }
